@@ -21,12 +21,12 @@ resource "azurerm_key_vault" "default" {
 }
 
 resource "azurerm_storage_account" "default" {
-  name                            = "st${var.name}${var.environment}"
-  location                        = azurerm_resource_group.default.location
-  resource_group_name             = azurerm_resource_group.default.name
-  account_tier                    = "Standard"
-  account_replication_type        = "GRS"
-  allow_nested_items_to_be_public = false
+  name                          = "st${var.name}${var.environment}"
+  location                      = azurerm_resource_group.default.location
+  resource_group_name           = azurerm_resource_group.default.name
+  account_tier                  = "Standard"
+  account_replication_type      = "GRS"
+  public_network_access_enabled = false
 
   network_rules {
     default_action = "Deny"
@@ -47,9 +47,14 @@ resource "azurerm_container_registry" "default" {
   public_network_access_enabled = false
 }
 
+resource "random_string" "workspace_suffix" {
+  length  = 10
+  special = false
+}
+
 # Machine Learning workspace
 resource "azurerm_machine_learning_workspace" "default" {
-  name                    = "mlw-${var.name}-${var.environment}"
+  name                    = "mlw-${var.name}-${var.environment}-${random_string.workspace_suffix.result}"
   location                = azurerm_resource_group.default.location
   resource_group_name     = azurerm_resource_group.default.name
   application_insights_id = azurerm_application_insights.default.id

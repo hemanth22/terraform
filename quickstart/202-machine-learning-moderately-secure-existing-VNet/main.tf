@@ -4,17 +4,26 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "=2.78.0"
+      version = "~> 3.0"
     }
 
     azureml = {
-      source = "registry.terraform.io/Telemaco019/azureml"
+      source  = "registry.terraform.io/orobix/azureml"
+      version = "0.0.5"
+    }
+    random = {
+      source  = "hashicorp/random"
+      version = "3.6.0"
     }
   }
 }
 
 provider "azurerm" {
-  features {}
+  features {
+    resource_group {
+      prevent_deletion_if_contains_resources = false
+    }
+  }
 }
 
 data "azurerm_client_config" "current" {}
