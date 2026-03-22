@@ -1,3 +1,60 @@
+## 22 Mar 26 01:34 UTC
+
+Success: false
+
+### Versions
+
+Terraform v1.13.3
+on linux_amd64
++ provider registry.terraform.io/hashicorp/azurerm v3.117.1
++ provider registry.terraform.io/hashicorp/random v3.8.1
+
+### Error
+
+Error:
+	Error Trace:	/home/runtimeuser/go/pkg/mod/github.com/gruntwork-io/terratest@v0.48.1/modules/terraform/apply.go:34
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:111
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:91
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:59
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:55
+	            				/src/test/e2e/quickstart_test.go:50
+	Error:      	Received unexpected error:
+	            	FatalError{Underlying: error while running command: exit status 1; [31m╷[0m[0m
+	            	[31m│[0m [0m[1m[31mError: [0m[0m[1mcreating/updating Customer Managed Key for Workspace (Subscription: "18ca8bf0-e7e9-4450-83da-2124ec1ce0cb"
+	            	[31m│[0m [0mResource Group Name: "rg-robust-flea"
+	            	[31m│[0m [0mWorkspace Name: "db-literate-finch"): polling after CreateOrUpdate: polling failed: the Azure API returned the following error:
+	            	[31m│[0m [0m
+	            	[31m│[0m [0mStatus: "WorkspaceUpdateFailed"
+	            	[31m│[0m [0mCode: ""
+	            	[31m│[0m [0mMessage: "Unable to perform update operation for the workspace : '/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-robust-flea/providers/Microsoft.Databricks/workspaces/db-literate-finch' failed : 'Unable to update storage account 'dbstorage7dcbmezdie4la': 'The operation failed because of authentication issue on the keyvault. For more information, see - https://aka.ms/storagekeyvaultaccesspolicy'.'."
+	            	[31m│[0m [0mActivity Id: ""
+	            	[31m│[0m [0m
+	            	[31m│[0m [0m---
+	            	[31m│[0m [0m
+	            	[31m│[0m [0mAPI Response:
+	            	[31m│[0m [0m
+	            	[31m│[0m [0m----[start]----
+	            	[31m│[0m [0m{
+	            	[31m│[0m [0m  "status": "Failed",
+	            	[31m│[0m [0m  "error": {
+	            	[31m│[0m [0m    "code": "WorkspaceUpdateFailed",
+	            	[31m│[0m [0m    "message": "Unable to perform update operation for the workspace : '/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-robust-flea/providers/Microsoft.Databricks/workspaces/db-literate-finch' failed : 'Unable to update storage account 'dbstorage7dcbmezdie4la': 'The operation failed because of authentication issue on the keyvault. For more information, see - https://aka.ms/storagekeyvaultaccesspolicy'.'."
+	            	[31m│[0m [0m  }
+	            	[31m│[0m [0m}
+	            	[31m│[0m [0m-----[end]-----
+	            	[31m│[0m [0m[0m
+	            	[31m│[0m [0m
+	            	[31m│[0m [0m[0m  with azurerm_databricks_workspace_customer_managed_key.cmk,
+	            	[31m│[0m [0m  on main.tf line 32, in resource "azurerm_databricks_workspace_customer_managed_key" "cmk":
+	            	[31m│[0m [0m  32: resource "azurerm_databricks_workspace_customer_managed_key" "cmk" [4m{[0m[0m
+	            	[31m│[0m [0m
+	            	[31m╵[0m[0m}
+	Test:       	Test_Quickstarts/quickstart/101-databricks-cmk-dbfs
+
+FailNow
+
+---
+
 ## 15 Mar 26 01:32 UTC
 
 Success: true

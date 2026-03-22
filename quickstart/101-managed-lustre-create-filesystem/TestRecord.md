@@ -1,3 +1,109 @@
+## 22 Mar 26 01:12 UTC
+
+Success: false
+
+### Versions
+
+Terraform v1.13.3
+on linux_amd64
++ provider registry.terraform.io/hashicorp/azurerm v3.117.1
++ provider registry.terraform.io/hashicorp/random v3.8.1
+
+### Error
+
+Error:
+	Error Trace:	/home/runtimeuser/go/pkg/mod/github.com/gruntwork-io/terratest@v0.48.1/modules/terraform/apply.go:34
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:111
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:91
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:59
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:55
+	            				/src/test/e2e/quickstart_test.go:50
+	Error:      	Received unexpected error:
+	            	FatalError{Underlying: error while running command: exit status 1; [31m╷[0m[0m
+	            	[31m│[0m [0m[1m[31mError: [0m[0m[1mcreating Aml Filesystem (Subscription: "18ca8bf0-e7e9-4450-83da-2124ec1ce0cb"
+	            	[31m│[0m [0mResource Group Name: "rg-poetic-primate"
+	            	[31m│[0m [0mAml Filesystem Name: "amlfs-ogmdelqpsgnui"): polling after CreateOrUpdate: polling failed: the Azure API returned the following error:
+	            	[31m│[0m [0m
+	            	[31m│[0m [0mStatus: "OverconstrainedZonalAllocationRequestFailure"
+	            	[31m│[0m [0mCode: ""
+	            	[31m│[0m [0mMessage: "Unable to deploy resource due to a capacity issue in availability zone '1'. Resources may be available in a different zone.  Please delete this resource and try again in a different zone."
+	            	[31m│[0m [0mActivity Id: ""
+	            	[31m│[0m [0m
+	            	[31m│[0m [0m---
+	            	[31m│[0m [0m
+	            	[31m│[0m [0mAPI Response:
+	            	[31m│[0m [0m
+	            	[31m│[0m [0m----[start]----
+	            	[31m│[0m [0m{
+	            	[31m│[0m [0m  "startTime": "2026-03-22T00:53:16.7544636+00:00",
+	            	[31m│[0m [0m  "endTime": "2026-03-22T00:55:59.8466159+00:00",
+	            	[31m│[0m [0m  "status": "Failed",
+	            	[31m│[0m [0m  "error": {
+	            	[31m│[0m [0m    "code": "OverconstrainedZonalAllocationRequestFailure",
+	            	[31m│[0m [0m    "message": "Unable to deploy resource due to a capacity issue in availability zone '1'. Resources may be available in a different zone.  Please delete this resource and try again in a different zone."
+	            	[31m│[0m [0m  },
+	            	[31m│[0m [0m  "name": "ef303db4-2b1e-488b-b158-b0c843ca1edb"
+	            	[31m│[0m [0m}
+	            	[31m│[0m [0m-----[end]-----
+	            	[31m│[0m [0m[0m
+	            	[31m│[0m [0m
+	            	[31m│[0m [0m[0m  with azurerm_managed_lustre_file_system.example,
+	            	[31m│[0m [0m  on main.tf line 48, in resource "azurerm_managed_lustre_file_system" "example":
+	            	[31m│[0m [0m  48: resource "azurerm_managed_lustre_file_system" "example" [4m{[0m [0m
+	            	[31m│[0m [0m
+	            	[31m│[0m [0mcreating Aml Filesystem (Subscription:
+	            	[31m│[0m [0m"18ca8bf0-e7e9-4450-83da-2124ec1ce0cb"
+	            	[31m│[0m [0mResource Group Name: "rg-poetic-primate"
+	            	[31m│[0m [0mAml Filesystem Name: "amlfs-ogmdelqpsgnui"): polling after CreateOrUpdate:
+	            	[31m│[0m [0mpolling failed: the Azure API returned the following error:
+	            	[31m│[0m [0m
+	            	[31m│[0m [0mStatus: "OverconstrainedZonalAllocationRequestFailure"
+	            	[31m│[0m [0mCode: ""
+	            	[31m│[0m [0mMessage: "Unable to deploy resource due to a capacity issue in availability
+	            	[31m│[0m [0mzone '1'. Resources may be available in a different zone.  Please delete
+	            	[31m│[0m [0mthis resource and try again in a different zone."
+	            	[31m│[0m [0mActivity Id: ""
+	            	[31m│[0m [0m
+	            	[31m│[0m [0m---
+	            	[31m│[0m [0m
+	            	[31m│[0m [0mAPI Response:
+	            	[31m│[0m [0m
+	            	[31m│[0m [0m----[start]----
+	            	[31m│[0m [0m{
+	            	[31m│[0m [0m  "startTime": "2026-03-22T00:53:16.7544636+00:00",
+	            	[31m│[0m [0m  "endTime": "2026-03-22T00:55:59.8466159+00:00",
+	            	[31m│[0m [0m  "status": "Failed",
+	            	[31m│[0m [0m  "error": {
+	            	[31m│[0m [0m    "code": "OverconstrainedZonalAllocationRequestFailure",
+	            	[31m│[0m [0m    "message": "Unable to deploy resource due to a capacity issue in availability zone '1'. Resources may be available in a different zone.  Please delete this resource and try again in a different zone."
+	            	[31m│[0m [0m  },
+	            	[31m│[0m [0m  "name": "ef303db4-2b1e-488b-b158-b0c843ca1edb"
+	            	[31m│[0m [0m}
+	            	[31m│[0m [0m-----[end]-----
+	            	[31m│[0m [0m
+	            	[31m╵[0m[0m}
+	Test:       	Test_Quickstarts/quickstart/101-managed-lustre-create-filesystem
+
+FailNow
+Error:
+	Error Trace:	/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:135
+	            				/usr/local/go/src/runtime/panic.go:615
+	            				/usr/local/go/src/testing/testing.go:1013
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/test_runner.go:53
+	            				/home/runtimeuser/go/pkg/mod/github.com/gruntwork-io/terratest@v0.48.1/modules/terraform/apply.go:34
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:111
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:91
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:59
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:55
+	            				/src/test/e2e/quickstart_test.go:50
+	Error:      	Received unexpected error:
+	            	'terraform [destroy -auto-approve -input=false -lock=false]' unsuccessful after 5 retries
+	Test:       	Test_Quickstarts/quickstart/101-managed-lustre-create-filesystem
+
+FailNow
+
+---
+
 ## 15 Mar 26 00:45 UTC
 
 Success: false
