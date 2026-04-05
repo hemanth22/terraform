@@ -1,3 +1,154 @@
+## 05 Apr 26 00:43 UTC
+
+Success: false
+
+### Versions
+
+Terraform v1.13.3
+on linux_amd64
++ provider registry.terraform.io/hashicorp/azurerm v4.67.0
++ provider registry.terraform.io/hashicorp/random v3.8.1
+
+### Error
+
+Error:
+	Error Trace:	/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:96
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:59
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:55
+	            				/src/test/e2e/quickstart_test.go:50
+	Error:      	Received unexpected error:
+	            	terraform configuration not idempotent:[0m[1mrandom_pet.eventhub_namespace_name: Refreshing state... [id=namespace-valid-octopus][0m
+	            	[0m[1mrandom_pet.rg_name: Refreshing state... [id=rg-national-bobcat][0m
+	            	[0m[1mrandom_pet.iothub_name: Refreshing state... [id=iothub-fox][0m
+	            	[0m[1mrandom_pet.dps_name: Refreshing state... [id=dps-raccoon][0m
+	            	[0m[1mrandom_string.sa_name: Refreshing state... [id=u12c27zrddqa][0m
+	            	[0m[1mazurerm_resource_group.rg: Refreshing state... [id=/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-national-bobcat][0m
+	            	[0m[1mazurerm_eventhub_namespace.namespace: Refreshing state... [id=/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-national-bobcat/providers/Microsoft.EventHub/namespaces/namespace-valid-octopus][0m
+	            	[0m[1mazurerm_storage_account.sa: Refreshing state... [id=/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-national-bobcat/providers/Microsoft.Storage/storageAccounts/u12c27zrddqa][0m
+	            	[0m[1mazurerm_storage_container.my_terraform_container: Refreshing state... [id=https://u12c27zrddqa.blob.core.windows.net/mycontainer][0m
+	            	[0m[1mazurerm_eventhub.my_terraform_eventhub: Refreshing state... [id=/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-national-bobcat/providers/Microsoft.EventHub/namespaces/namespace-valid-octopus/eventhubs/myEventHub][0m
+	            	[0m[1mazurerm_eventhub_authorization_rule.my_terraform_authorization_rule: Refreshing state... [id=/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-national-bobcat/providers/Microsoft.EventHub/namespaces/namespace-valid-octopus/eventhubs/myEventHub/authorizationRules/acctest][0m
+	            	[0m[1mazurerm_iothub.iothub: Refreshing state... [id=/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-national-bobcat/providers/Microsoft.Devices/iotHubs/iothub-fox][0m
+	            	[0m[1mazurerm_iothub_shared_access_policy.hub_access_policy: Refreshing state... [id=/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-national-bobcat/providers/Microsoft.Devices/iotHubs/iothub-fox/iotHubKeys/terraform-policy][0m
+	            	[0m[1mazurerm_iothub_dps.dps: Refreshing state... [id=/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-national-bobcat/providers/Microsoft.Devices/provisioningServices/dps-raccoon][0m
+	            	
+	            	Terraform used the selected providers to generate the following execution
+	            	plan. Resource actions are indicated with the following symbols:
+	            	[31m-[0m/[32m+[0m destroy and then create replacement[0m
+	            	
+	            	Terraform will perform the following actions:
+	            	
+	            	[1m  # azurerm_iothub.iothub[0m must be [1m[31mreplaced[0m
+	            	[0m[31m-[0m/[32m+[0m[0m resource "azurerm_iothub" "iothub" {
+	            	      [33m~[0m[0m endpoint                      = [
+	            	          [33m~[0m[0m {
+	            	              [33m~[0m[0m connection_string          = (sensitive value)
+	            	                name                       = "export"
+	            	              [33m~[0m[0m subscription_id            = "18ca8bf0-e7e9-4450-83da-2124ec1ce0cb" -> (known after apply)
+	            	                [90m# (11 unchanged attributes hidden)[0m[0m
+	            	            },
+	            	          [33m~[0m[0m {
+	            	              [31m-[0m[0m batch_frequency_in_seconds = 0
+	            	              [33m~[0m[0m connection_string          = (sensitive value)
+	            	              [31m-[0m[0m max_chunk_size_in_bytes    = 0
+	            	                name                       = "export2"
+	            	              [33m~[0m[0m subscription_id            = "18ca8bf0-e7e9-4450-83da-2124ec1ce0cb" -> (known after apply)
+	            	                [90m# (9 unchanged attributes hidden)[0m[0m
+	            	            },
+	            	        ]
+	            	      [33m~[0m[0m event_hub_events_endpoint     = "sb://iothub-ns-iothub-fox-71054521-b1d5d5defd.servicebus.windows.net/" -> (known after apply)
+	            	      [33m~[0m[0m event_hub_events_namespace    = "iothub-ns-iothub-fox-71054521-b1d5d5defd" -> (known after apply)
+	            	      [33m~[0m[0m event_hub_events_path         = "iothub-fox" -> (known after apply)
+	            	      [32m+[0m[0m event_hub_operations_endpoint = (known after apply)
+	            	      [32m+[0m[0m event_hub_operations_path     = (known after apply)
+	            	      [33m~[0m[0m hostname                      = "iothub-fox.azure-devices.net" -> (known after apply)
+	            	      [33m~[0m[0m id                            = "/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-national-bobcat/providers/Microsoft.Devices/iotHubs/iothub-fox" -> (known after apply)
+	            	      [31m-[0m[0m min_tls_version               = "1.2" [90m-> null[0m[0m [31m# forces replacement[0m[0m
+	            	        name                          = "iothub-fox"
+	            	      [33m~[0m[0m shared_access_policy          = [
+	            	          [31m-[0m[0m {
+	            	              [31m-[0m[0m key_name      = "iothubowner"
+	            	              [31m-[0m[0m permissions   = "RegistryWrite, ServiceConnect, DeviceConnect"
+	            	              [31m-[0m[0m primary_key   = "U7h+/79S0OD5YgKPxh7zZERq30WFhL/qfAIoTIs1MDQ="
+	            	              [31m-[0m[0m secondary_key = "/SIOo22Lx/bm9dtlNYY+GGfTfmXgweyEaAIoTA7zP8U="
+	            	            },
+	            	          [31m-[0m[0m {
+	            	              [31m-[0m[0m key_name      = "service"
+	            	              [31m-[0m[0m permissions   = "ServiceConnect"
+	            	              [31m-[0m[0m primary_key   = "yawDx7rywTPRzDPpfZrrZ31j8vv6A6O+PAIoTC7QKzU="
+	            	              [31m-[0m[0m secondary_key = "6zYXg+BzhQdsSYJRJrRNEfAo1mueeRCp0AIoTALcWqU="
+	            	            },
+	            	          [31m-[0m[0m {
+	            	              [31m-[0m[0m key_name      = "device"
+	            	              [31m-[0m[0m permissions   = "DeviceConnect"
+	            	              [31m-[0m[0m primary_key   = "aBl5kyqZ48BqyN1cBRe0UYWFabw4y6MreAIoTIbK0rY="
+	            	              [31m-[0m[0m secondary_key = "NlPCr4ZPcBvayH/tgVjSn6oWHJC9uAsD1AIoTPC+ObQ="
+	            	            },
+	            	          [31m-[0m[0m {
+	            	              [31m-[0m[0m key_name      = "registryRead"
+	            	              [31m-[0m[0m permissions   = "RegistryRead"
+	            	              [31m-[0m[0m primary_key   = "/NxQHeujaBOgTQV4xbrG9Y2pc650kRU+lAIoTJ6krBQ="
+	            	              [31m-[0m[0m secondary_key = "uxikwEtOCR70x5689ZbFee2KwWYhy9X1RAIoTKa9JfQ="
+	            	            },
+	            	          [31m-[0m[0m {
+	            	              [31m-[0m[0m key_name      = "registryReadWrite"
+	            	              [31m-[0m[0m permissions   = "RegistryWrite"
+	            	              [31m-[0m[0m primary_key   = "6BV8HIhttb3PZ4KHWSf9dw3jDEirbOakhAIoTKkg/G8="
+	            	              [31m-[0m[0m secondary_key = "vUd/Ffz8BIKepZoMiAx609D1x9lNUgH9vAIoTCnT8I0="
+	            	            },
+	            	          [31m-[0m[0m {
+	            	              [31m-[0m[0m key_name      = "terraform-policy"
+	            	              [31m-[0m[0m permissions   = "RegistryWrite, ServiceConnect"
+	            	              [31m-[0m[0m primary_key   = "e4lTB7VhI2o0qy9eL9JOFZKQQopHPBB2sAIoTEM/fDk="
+	            	              [31m-[0m[0m secondary_key = "nF8b6h7BaPrUHFPTvIa8RG9Qg1IFKiOFyAIoTHR5K80="
+	            	            },
+	            	        ] -> (known after apply)
+	            	        tags                          = {
+	            	            "purpose" = "testing"
+	            	        }
+	            	      [33m~[0m[0m type                          = "Microsoft.Devices/IotHubs" -> (known after apply)
+	            	        [90m# (7 unchanged attributes hidden)[0m[0m
+	            	
+	            	      [33m~[0m[0m fallback_route (known after apply)
+	            	      [31m-[0m[0m fallback_route {
+	            	          [31m-[0m[0m condition      = "true" [90m-> null[0m[0m
+	            	          [31m-[0m[0m enabled        = true [90m-> null[0m[0m
+	            	          [31m-[0m[0m endpoint_names = [
+	            	              [31m-[0m[0m "events",
+	            	            ] [90m-> null[0m[0m
+	            	          [31m-[0m[0m source         = "DeviceMessages" [90m-> null[0m[0m
+	            	        }
+	            	
+	            	        [90m# (2 unchanged blocks hidden)[0m[0m
+	            	    }
+	            	
+	            	[1mPlan:[0m 1 to add, 0 to change, 1 to destroy.
+	            	[0m[33m╷[0m[0m
+	            	[33m│[0m [0m[1m[33mWarning: [0m[0m[1mArgument is deprecated[0m
+	            	[33m│[0m [0m
+	            	[33m│[0m [0m[0m  with azurerm_storage_container.my_terraform_container,
+	            	[33m│[0m [0m  on main.tf line 27, in resource "azurerm_storage_container" "my_terraform_container":
+	            	[33m│[0m [0m  27:   storage_account_name  = [4mazurerm_storage_account.sa.name[0m[0m
+	            	[33m│[0m [0m
+	            	[33m│[0m [0mthe `storage_account_name` property has been deprecated in favour of
+	            	[33m│[0m [0m`storage_account_id` and will be removed in version 5.0 of the Provider.
+	            	[33m│[0m [0m
+	            	[33m│[0m [0m(and 2 more similar warnings elsewhere)
+	            	[33m╵[0m[0m
+	            	[90m
+	            	─────────────────────────────────────────────────────────────────────────────[0m
+	            	
+	            	Saved the plan to:
+	            	/tmp/201-iot-hub-with-device-provisioning-service1125911483/src/quickstart/201-iot-hub-with-device-provisioning-service/tf.plan
+	            	
+	            	To perform exactly these actions, run the following command to apply:
+	            	    terraform apply "/tmp/201-iot-hub-with-device-provisioning-service1125911483/src/quickstart/201-iot-hub-with-device-provisioning-service/tf.plan"
+	Test:       	Test_Quickstarts/quickstart/201-iot-hub-with-device-provisioning-service
+
+FailNow
+
+---
+
 ## 29 Mar 26 01:34 UTC
 
 Success: false
