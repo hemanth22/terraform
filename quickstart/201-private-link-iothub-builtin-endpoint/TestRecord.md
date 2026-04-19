@@ -1,3 +1,196 @@
+## 19 Apr 26 00:38 UTC
+
+Success: false
+
+### Versions
+
+Terraform v1.13.3
+on linux_amd64
++ provider registry.terraform.io/hashicorp/azurerm v3.117.1
++ provider registry.terraform.io/hashicorp/random v3.8.1
+
+### Error
+
+Error:
+	Error Trace:	/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:96
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:59
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:55
+	            				/src/test/e2e/quickstart_test.go:50
+	Error:      	Received unexpected error:
+	            	terraform configuration not idempotent:[0m[1mrandom_string.suffix: Refreshing state... [id=eg0x2][0m
+	            	[0m[1mazurerm_resource_group.rg: Refreshing state... [id=/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-iothub-eg0x2][0m
+	            	[0m[1mazurerm_virtual_network.vnet: Refreshing state... [id=/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-iothub-eg0x2/providers/Microsoft.Network/virtualNetworks/iothub-vnet-eg0x2][0m
+	            	[0m[1mazurerm_private_dns_zone.iothub: Refreshing state... [id=/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-iothub-eg0x2/providers/Microsoft.Network/privateDnsZones/privatelink.azure-devices.net][0m
+	            	[0m[1mazurerm_private_dns_zone.eventhub: Refreshing state... [id=/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-iothub-eg0x2/providers/Microsoft.Network/privateDnsZones/privatelink.servicebus.windows.net][0m
+	            	[0m[1mazurerm_private_dns_zone.dps: Refreshing state... [id=/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-iothub-eg0x2/providers/Microsoft.Network/privateDnsZones/privatelink.azure-devices-provisioning.net][0m
+	            	[0m[1mazurerm_iothub.iothub: Refreshing state... [id=/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-iothub-eg0x2/providers/Microsoft.Devices/iotHubs/iothub-eg0x2][0m
+	            	[0m[1mazurerm_subnet.snet: Refreshing state... [id=/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-iothub-eg0x2/providers/Microsoft.Network/virtualNetworks/iothub-vnet-eg0x2/subnets/iothub-snet-eg0x2][0m
+	            	[0m[1mazurerm_private_dns_zone_virtual_network_link.eventhub: Refreshing state... [id=/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-iothub-eg0x2/providers/Microsoft.Network/privateDnsZones/privatelink.servicebus.windows.net/virtualNetworkLinks/vnet-link-eventhub-eg0x2][0m
+	            	[0m[1mazurerm_private_dns_zone_virtual_network_link.iothub: Refreshing state... [id=/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-iothub-eg0x2/providers/Microsoft.Network/privateDnsZones/privatelink.azure-devices.net/virtualNetworkLinks/vnet-link-iothub-eg0x2][0m
+	            	[0m[1mazurerm_private_dns_zone_virtual_network_link.dps: Refreshing state... [id=/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-iothub-eg0x2/providers/Microsoft.Network/privateDnsZones/privatelink.azure-devices-provisioning.net/virtualNetworkLinks/vnet-link-dps-eg0x2][0m
+	            	[0m[1mazurerm_private_endpoint.iothub: Refreshing state... [id=/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-iothub-eg0x2/providers/Microsoft.Network/privateEndpoints/pep-iothub-eg0x2][0m
+	            	[0m[1mazurerm_iothub_shared_access_policy.iothub_policy: Refreshing state... [id=/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-iothub-eg0x2/providers/Microsoft.Devices/iotHubs/iothub-eg0x2/iotHubKeys/iothub-policy][0m
+	            	[0m[1mazurerm_private_dns_a_record.eventhub: Refreshing state... [id=/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-iothub-eg0x2/providers/Microsoft.Network/privateDnsZones/privatelink.servicebus.windows.net/A/iothub-ns-iothub-eg0-67259645-2f2fa2544b][0m
+	            	[0m[1mazurerm_iothub_dps.dps: Refreshing state... [id=/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-iothub-eg0x2/providers/Microsoft.Devices/provisioningServices/test-device-eg0x2][0m
+	            	[0m[1mazurerm_private_endpoint.dps: Refreshing state... [id=/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-iothub-eg0x2/providers/Microsoft.Network/privateEndpoints/pep-dps-eg0x2][0m
+	            	
+	            	Terraform used the selected providers to generate the following execution
+	            	plan. Resource actions are indicated with the following symbols:
+	            	[31m-[0m/[32m+[0m destroy and then create replacement[0m
+	            	
+	            	Terraform will perform the following actions:
+	            	
+	            	[1m  # azurerm_iothub.iothub[0m must be [1m[31mreplaced[0m
+	            	[0m[31m-[0m/[32m+[0m[0m resource "azurerm_iothub" "iothub" {
+	            	      [33m~[0m[0m endpoint                      = [] -> (known after apply)
+	            	      [33m~[0m[0m enrichment                    = [] -> (known after apply)
+	            	      [33m~[0m[0m event_hub_events_endpoint     = "sb://iothub-ns-iothub-eg0-67259645-2f2fa2544b.servicebus.windows.net/" -> (known after apply)
+	            	      [33m~[0m[0m event_hub_events_namespace    = "iothub-ns-iothub-eg0-67259645-2f2fa2544b" -> (known after apply)
+	            	      [33m~[0m[0m event_hub_events_path         = "iothub-eg0x2" -> (known after apply)
+	            	      [32m+[0m[0m event_hub_operations_endpoint = (known after apply)
+	            	      [32m+[0m[0m event_hub_operations_path     = (known after apply)
+	            	      [33m~[0m[0m event_hub_partition_count     = 4 -> (known after apply)
+	            	      [33m~[0m[0m event_hub_retention_in_days   = 1 -> (known after apply)
+	            	      [33m~[0m[0m hostname                      = "iothub-eg0x2.azure-devices.net" -> (known after apply)
+	            	      [33m~[0m[0m id                            = "/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-iothub-eg0x2/providers/Microsoft.Devices/iotHubs/iothub-eg0x2" -> (known after apply)
+	            	      [31m-[0m[0m min_tls_version               = "1.2" [90m-> null[0m[0m [31m# forces replacement[0m[0m
+	            	        name                          = "iothub-eg0x2"
+	            	      [33m~[0m[0m route                         = [] -> (known after apply)
+	            	      [33m~[0m[0m shared_access_policy          = [
+	            	          [31m-[0m[0m {
+	            	              [31m-[0m[0m key_name      = "iothubowner"
+	            	              [31m-[0m[0m permissions   = "RegistryWrite, ServiceConnect, DeviceConnect"
+	            	              [31m-[0m[0m primary_key   = "6XgQZ8VigODPabN3/yRx7qNSMrkk2LyUbAIoTDiKr/M="
+	            	              [31m-[0m[0m secondary_key = "ko1y/vIgdzFK0ZqeOuHfz+NsGHkhEX8GYAIoTLe1jyQ="
+	            	            },
+	            	          [31m-[0m[0m {
+	            	              [31m-[0m[0m key_name      = "service"
+	            	              [31m-[0m[0m permissions   = "ServiceConnect"
+	            	              [31m-[0m[0m primary_key   = "/++noKUyZeGW00iBbPpe9bJYrrhuTvD6eAIoTO3VtaI="
+	            	              [31m-[0m[0m secondary_key = "N7Di8ecHDk9yHJhRCkd+NFkqtId4fBMzmAIoTAUltXs="
+	            	            },
+	            	          [31m-[0m[0m {
+	            	              [31m-[0m[0m key_name      = "device"
+	            	              [31m-[0m[0m permissions   = "DeviceConnect"
+	            	              [31m-[0m[0m primary_key   = "hzgPfFTHIoArGnBnhggYWU0+gTKvQhEKtAIoTMHtjLc="
+	            	              [31m-[0m[0m secondary_key = "IholUcVVCYX/IP/QPAevsk7t0EcA/GURtAIoTHpEGCM="
+	            	            },
+	            	          [31m-[0m[0m {
+	            	              [31m-[0m[0m key_name      = "registryRead"
+	            	              [31m-[0m[0m permissions   = "RegistryRead"
+	            	              [31m-[0m[0m primary_key   = "tAFPd32LtGP1/xaZaaKQO0LGmsKyCR03fAIoTBjU8Jc="
+	            	              [31m-[0m[0m secondary_key = "z+ZI40c35DD7TlzSVQs3D0NffGStTSuyFAIoTAxbbII="
+	            	            },
+	            	          [31m-[0m[0m {
+	            	              [31m-[0m[0m key_name      = "registryReadWrite"
+	            	              [31m-[0m[0m permissions   = "RegistryWrite"
+	            	              [31m-[0m[0m primary_key   = "ywbah1GZk9cCQbc2BbApTptJSHgEM3nL4AIoTLaLKF8="
+	            	              [31m-[0m[0m secondary_key = "9GV1hSOb/rGXNm+dCojdmmTHvDhwSsaVoAIoTOj17xs="
+	            	            },
+	            	          [31m-[0m[0m {
+	            	              [31m-[0m[0m key_name      = "iothub-policy"
+	            	              [31m-[0m[0m permissions   = "RegistryWrite, ServiceConnect"
+	            	              [31m-[0m[0m primary_key   = "/aHvkNsYK7/6XXYVaL32ByXJysOI/kIg1AIoTIeUpbs="
+	            	              [31m-[0m[0m secondary_key = "sgxaFpT4NDICCXn6i3hS7h8rreu+m8A71AIoTJcrasI="
+	            	            },
+	            	        ] -> (known after apply)
+	            	      [31m-[0m[0m tags                          = {} [90m-> null[0m[0m
+	            	      [33m~[0m[0m type                          = "Microsoft.Devices/IotHubs" -> (known after apply)
+	            	        [90m# (4 unchanged attributes hidden)[0m[0m
+	            	
+	            	      [33m~[0m[0m fallback_route (known after apply)
+	            	      [31m-[0m[0m fallback_route {
+	            	          [31m-[0m[0m condition      = "true" [90m-> null[0m[0m
+	            	          [31m-[0m[0m enabled        = true [90m-> null[0m[0m
+	            	          [31m-[0m[0m endpoint_names = [
+	            	              [31m-[0m[0m "events",
+	            	            ] [90m-> null[0m[0m
+	            	          [31m-[0m[0m source         = "DeviceMessages" [90m-> null[0m[0m
+	            	        }
+	            	
+	            	        [90m# (2 unchanged blocks hidden)[0m[0m
+	            	    }
+	            	
+	            	[1m  # azurerm_private_dns_a_record.eventhub[0m must be [1m[31mreplaced[0m
+	            	[0m[31m-[0m/[32m+[0m[0m resource "azurerm_private_dns_a_record" "eventhub" {
+	            	      [33m~[0m[0m fqdn                = "iothub-ns-iothub-eg0-67259645-2f2fa2544b.privatelink.servicebus.windows.net." -> (known after apply)
+	            	      [33m~[0m[0m id                  = "/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-iothub-eg0x2/providers/Microsoft.Network/privateDnsZones/privatelink.servicebus.windows.net/A/iothub-ns-iothub-eg0-67259645-2f2fa2544b" -> (known after apply)
+	            	      [33m~[0m[0m name                = "iothub-ns-iothub-eg0-67259645-2f2fa2544b" -> (known after apply) [31m# forces replacement[0m[0m
+	            	      [33m~[0m[0m records             = [
+	            	          [31m-[0m[0m "10.0.3.5",
+	            	        ] -> (known after apply)
+	            	      [31m-[0m[0m tags                = {} [90m-> null[0m[0m
+	            	        [90m# (3 unchanged attributes hidden)[0m[0m
+	            	    }
+	            	
+	            	[1m  # azurerm_private_endpoint.iothub[0m must be [1m[31mreplaced[0m
+	            	[0m[31m-[0m/[32m+[0m[0m resource "azurerm_private_endpoint" "iothub" {
+	            	      [33m~[0m[0m custom_dns_configs            = [
+	            	          [31m-[0m[0m {
+	            	              [31m-[0m[0m fqdn         = "iothub-ns-iothub-eg0-67259645-2f2fa2544b.servicebus.windows.net"
+	            	              [31m-[0m[0m ip_addresses = [
+	            	                  [31m-[0m[0m "10.0.3.5",
+	            	                ]
+	            	            },
+	            	        ] -> (known after apply)
+	            	      [33m~[0m[0m id                            = "/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-iothub-eg0x2/providers/Microsoft.Network/privateEndpoints/pep-iothub-eg0x2" -> (known after apply)
+	            	        name                          = "pep-iothub-eg0x2"
+	            	      [33m~[0m[0m network_interface             = [
+	            	          [31m-[0m[0m {
+	            	              [31m-[0m[0m id   = "/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-iothub-eg0x2/providers/Microsoft.Network/networkInterfaces/pep-iothub-eg0x2.nic.46da5b21-6191-4809-bede-8e245e7f794c"
+	            	              [31m-[0m[0m name = "pep-iothub-eg0x2.nic.46da5b21-6191-4809-bede-8e245e7f794c"
+	            	            },
+	            	        ] -> (known after apply)
+	            	      [33m~[0m[0m private_dns_zone_configs      = [
+	            	          [31m-[0m[0m {
+	            	              [31m-[0m[0m id                  = "/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-iothub-eg0x2/providers/Microsoft.Network/privateEndpoints/pep-iothub-eg0x2/privateDnsZoneGroups/privateDNSZoneGroup/privateDnsZoneConfigs/privatelink.azure-devices.net"
+	            	              [31m-[0m[0m name                = "privatelink.azure-devices.net"
+	            	              [31m-[0m[0m private_dns_zone_id = "/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-iothub-eg0x2/providers/Microsoft.Network/privateDnsZones/privatelink.azure-devices.net"
+	            	              [31m-[0m[0m record_sets         = [
+	            	                  [31m-[0m[0m {
+	            	                      [31m-[0m[0m fqdn         = "iothub-eg0x2.privatelink.azure-devices.net"
+	            	                      [31m-[0m[0m ip_addresses = [
+	            	                          [31m-[0m[0m "10.0.3.4",
+	            	                        ]
+	            	                      [31m-[0m[0m name         = "iothub-eg0x2"
+	            	                      [31m-[0m[0m ttl          = 10
+	            	                      [31m-[0m[0m type         = "A"
+	            	                    },
+	            	                ]
+	            	            },
+	            	        ] -> (known after apply)
+	            	      [31m-[0m[0m tags                          = {} [90m-> null[0m[0m
+	            	        [90m# (4 unchanged attributes hidden)[0m[0m
+	            	
+	            	      [33m~[0m[0m private_dns_zone_group {
+	            	          [33m~[0m[0m id                   = "/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-iothub-eg0x2/providers/Microsoft.Network/privateEndpoints/pep-iothub-eg0x2/privateDnsZoneGroups/privateDNSZoneGroup" -> (known after apply)
+	            	            name                 = "privateDNSZoneGroup"
+	            	            [90m# (1 unchanged attribute hidden)[0m[0m
+	            	        }
+	            	
+	            	      [33m~[0m[0m private_service_connection {
+	            	            name                              = "psc-iothub-eg0x2"
+	            	          [33m~[0m[0m private_connection_resource_id    = "/subscriptions/18ca8bf0-e7e9-4450-83da-2124ec1ce0cb/resourceGroups/rg-iothub-eg0x2/providers/Microsoft.Devices/iotHubs/iothub-eg0x2" -> (known after apply) [31m# forces replacement[0m[0m
+	            	          [33m~[0m[0m private_ip_address                = "10.0.3.4" -> (known after apply)
+	            	            [90m# (4 unchanged attributes hidden)[0m[0m
+	            	        }
+	            	    }
+	            	
+	            	[1mPlan:[0m 3 to add, 0 to change, 3 to destroy.
+	            	[0m[90m
+	            	─────────────────────────────────────────────────────────────────────────────[0m
+	            	
+	            	Saved the plan to:
+	            	/tmp/201-private-link-iothub-builtin-endpoint776071557/src/quickstart/201-private-link-iothub-builtin-endpoint/tf.plan
+	            	
+	            	To perform exactly these actions, run the following command to apply:
+	            	    terraform apply "/tmp/201-private-link-iothub-builtin-endpoint776071557/src/quickstart/201-private-link-iothub-builtin-endpoint/tf.plan"
+	Test:       	Test_Quickstarts/quickstart/201-private-link-iothub-builtin-endpoint
+
+FailNow
+
+---
+
 ## 12 Apr 26 00:36 UTC
 
 Success: false
