@@ -1,3 +1,56 @@
+## 26 Apr 26 01:30 UTC
+
+Success: false
+
+### Versions
+
+Terraform v1.14.8
+on linux_amd64
++ provider registry.terraform.io/hashicorp/azurerm v3.117.1
++ provider registry.terraform.io/hashicorp/random v3.8.1
+
+### Error
+
+Error:
+	Error Trace:	/home/runtimeuser/go/pkg/mod/github.com/gruntwork-io/terratest@v0.48.1/modules/terraform/apply.go:34
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:111
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:91
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:59
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:55
+	            				/src/test/e2e/quickstart_test.go:50
+	Error:      	Received unexpected error:
+	            	FatalError{Underlying: error while running command: exit status 1; [31m╷[0m[0m
+	            	[31m│[0m [0m[1m[31mError: [0m[0m[1mcreating Pool (Subscription: "18ca8bf0-e7e9-4450-83da-2124ec1ce0cb"
+	            	[31m│[0m [0mResource Group Name: "rg-glad-moray"
+	            	[31m│[0m [0mBatch Account Name: "rizvthbj"
+	            	[31m│[0m [0mPool Name: "pool-immune-calf-fixed-pool"): unexpected status 400 (400 Bad Request) with error: InvalidPropertyValue: The value provided for one of the properties in the request body is invalid.
+	            	[31m│[0m [0mRequestId:5715d62b-06a3-44c0-94c6-9a628623e3e8
+	            	[31m│[0m [0mTime:2026-04-26T01:29:29.5806126Z[0m
+	            	[31m│[0m [0m
+	            	[31m│[0m [0m[0m  with azurerm_batch_pool.fixed,
+	            	[31m│[0m [0m  on main.tf line 46, in resource "azurerm_batch_pool" "fixed":
+	            	[31m│[0m [0m  46: resource "azurerm_batch_pool" "fixed" [4m{[0m[0m
+	            	[31m│[0m [0m
+	            	[31m╵[0m[0m
+	            	[31m╷[0m[0m
+	            	[31m│[0m [0m[1m[31mError: [0m[0m[1mcreating Pool (Subscription: "18ca8bf0-e7e9-4450-83da-2124ec1ce0cb"
+	            	[31m│[0m [0mResource Group Name: "rg-glad-moray"
+	            	[31m│[0m [0mBatch Account Name: "rizvthbj"
+	            	[31m│[0m [0mPool Name: "pool-immune-calf-autoscale-pool"): unexpected status 400 (400 Bad Request) with error: InvalidPropertyValue: The value provided for one of the properties in the request body is invalid.
+	            	[31m│[0m [0mRequestId:9d48cea5-86c5-4d2d-bfe3-2d59bed43b7a
+	            	[31m│[0m [0mTime:2026-04-26T01:29:29.4269161Z[0m
+	            	[31m│[0m [0m
+	            	[31m│[0m [0m[0m  with azurerm_batch_pool.autopool,
+	            	[31m│[0m [0m  on main.tf line 88, in resource "azurerm_batch_pool" "autopool":
+	            	[31m│[0m [0m  88: resource "azurerm_batch_pool" "autopool" [4m{[0m[0m
+	            	[31m│[0m [0m
+	            	[31m╵[0m[0m}
+	Test:       	Test_Quickstarts/quickstart/101-batch-pools-with-job
+
+FailNow
+
+---
+
 ## 19 Apr 26 01:28 UTC
 
 Success: false
