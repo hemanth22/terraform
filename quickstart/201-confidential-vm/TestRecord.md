@@ -1,3 +1,57 @@
+## 28 Jun 26 04:27 UTC
+
+Success: false
+
+### Versions
+
+Terraform v1.14.8
+on linux_amd64
++ provider registry.terraform.io/hashicorp/azurerm v3.117.1
++ provider registry.terraform.io/hashicorp/random v3.9.0
++ provider registry.terraform.io/hashicorp/tls v4.0.4
+
+### Error
+
+Error:
+	Error Trace:	/home/runtimeuser/go/pkg/mod/github.com/gruntwork-io/terratest@v0.48.1/modules/terraform/apply.go:34
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:111
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:91
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:59
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:55
+	            				/src/test/e2e/quickstart_test.go:50
+	Error:      	Received unexpected error:
+	            	FatalError{Underlying: error while running command: exit status 1; [31m╷[0m[0m
+	            	[31m│[0m [0m[1m[31mError: [0m[0m[1mcreating Disk Encryption Set (Subscription: "cb563ee9-7df0-468e-81d5-166968d1f89a"
+	            	[31m│[0m [0mResource Group Name: "bold-horse-rg"
+	            	[31m│[0m [0mDisk Encryption Set Name: "bold-horse-des"): performing CreateOrUpdate: Put "https://management.azure.com/subscriptions/cb563ee9-7df0-468e-81d5-166968d1f89a/resourceGroups/bold-horse-rg/providers/Microsoft.Compute/diskEncryptionSets/bold-horse-des?api-version=2022-03-02": HTTP response was nil; connection may have been reset[0m
+	            	[31m│[0m [0m
+	            	[31m│[0m [0m[0m  with azurerm_disk_encryption_set.example,
+	            	[31m│[0m [0m  on main.tf line 65, in resource "azurerm_disk_encryption_set" "example":
+	            	[31m│[0m [0m  65: resource "azurerm_disk_encryption_set" "example" [4m{[0m[0m
+	            	[31m│[0m [0m
+	            	[31m╵[0m[0m}
+	Test:       	Test_Quickstarts/quickstart/201-confidential-vm
+
+FailNow
+Error:
+	Error Trace:	/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:135
+	            				/usr/local/go/src/runtime/panic.go:615
+	            				/usr/local/go/src/testing/testing.go:1013
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/test_runner.go:53
+	            				/home/runtimeuser/go/pkg/mod/github.com/gruntwork-io/terratest@v0.48.1/modules/terraform/apply.go:34
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:111
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:91
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:59
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:55
+	            				/src/test/e2e/quickstart_test.go:50
+	Error:      	Received unexpected error:
+	            	'terraform [destroy -auto-approve -input=false -lock=false]' unsuccessful after 5 retries
+	Test:       	Test_Quickstarts/quickstart/201-confidential-vm
+
+FailNow
+
+---
+
 ## 14 Jun 26 00:57 UTC
 
 Success: false

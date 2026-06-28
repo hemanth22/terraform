@@ -1,3 +1,41 @@
+## 28 Jun 26 01:38 UTC
+
+Success: false
+
+### Versions
+
+Terraform v1.14.8
+on linux_amd64
++ provider registry.terraform.io/hashicorp/azurerm v3.117.1
++ provider registry.terraform.io/hashicorp/random v3.9.0
+
+### Error
+
+Error:
+	Error Trace:	/home/runtimeuser/go/pkg/mod/github.com/gruntwork-io/terratest@v0.48.1/modules/terraform/apply.go:34
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:111
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:91
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:59
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:55
+	            				/src/test/e2e/quickstart_test.go:50
+	Error:      	Received unexpected error:
+	            	FatalError{Underlying: error while running command: exit status 1; [31m╷[0m[0m
+	            	[31m│[0m [0m[1m[31mError: [0m[0m[1mcreating Subnet (Subscription: "cb563ee9-7df0-468e-81d5-166968d1f89a"
+	            	[31m│[0m [0mResource Group Name: "rg-superb-unicorn"
+	            	[31m│[0m [0mVirtual Network Name: "vnet-bbtjspcy"
+	            	[31m│[0m [0mSubnet Name: "subnet-bbtjspcy"): performing CreateOrUpdate: Put "https://management.azure.com/subscriptions/cb563ee9-7df0-468e-81d5-166968d1f89a/resourceGroups/rg-superb-unicorn/providers/Microsoft.Network/virtualNetworks/vnet-bbtjspcy/subnets/subnet-bbtjspcy?api-version=2023-11-01": HTTP response was nil; connection may have been reset[0m
+	            	[31m│[0m [0m
+	            	[31m│[0m [0m[0m  with azurerm_subnet.subnet,
+	            	[31m│[0m [0m  on main.tf line 29, in resource "azurerm_subnet" "subnet":
+	            	[31m│[0m [0m  29: resource "azurerm_subnet" "subnet" [4m{[0m[0m
+	            	[31m│[0m [0m
+	            	[31m╵[0m[0m}
+	Test:       	Test_Quickstarts/quickstart/101-dns-private-zone
+
+FailNow
+
+---
+
 ## 14 Jun 26 01:49 UTC
 
 Success: false

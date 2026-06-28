@@ -1,3 +1,56 @@
+## 28 Jun 26 00:54 UTC
+
+Success: false
+
+### Versions
+
+Terraform v1.14.8
+on linux_amd64
++ provider registry.terraform.io/hashicorp/azurerm v4.79.0
++ provider registry.terraform.io/hashicorp/random v3.9.0
+
+### Error
+
+Error:
+	Error Trace:	/home/runtimeuser/go/pkg/mod/github.com/gruntwork-io/terratest@v0.48.1/modules/terraform/apply.go:34
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:111
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:91
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:59
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:55
+	            				/src/test/e2e/quickstart_test.go:50
+	Error:      	Received unexpected error:
+	            	FatalError{Underlying: error while running command: exit status 1; [31m╷[0m[0m
+	            	[31m│[0m [0m[1m[31mError: [0m[0m[1mcreating Network Interface (Subscription: "cb563ee9-7df0-468e-81d5-166968d1f89a"
+	            	[31m│[0m [0mResource Group Name: "rg-excited-mudfish"
+	            	[31m│[0m [0mNetwork Interface Name: "test-nic1"): performing CreateOrUpdate: Put "https://management.azure.com/subscriptions/cb563ee9-7df0-468e-81d5-166968d1f89a/resourceGroups/rg-excited-mudfish/providers/Microsoft.Network/networkInterfaces/test-nic1?api-version=2025-01-01": HTTP response was nil; connection may have been reset[0m
+	            	[31m│[0m [0m
+	            	[31m│[0m [0m[0m  with azurerm_network_interface.example[1],
+	            	[31m│[0m [0m  on main.tf line 63, in resource "azurerm_network_interface" "example":
+	            	[31m│[0m [0m  63: resource "azurerm_network_interface" "example" [4m{[0m[0m
+	            	[31m│[0m [0m
+	            	[31m╵[0m[0m}
+	Test:       	Test_Quickstarts/quickstart/101-azure-load-balancer-public
+
+FailNow
+Error:
+	Error Trace:	/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:135
+	            				/usr/local/go/src/runtime/panic.go:615
+	            				/usr/local/go/src/testing/testing.go:1013
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/test_runner.go:53
+	            				/home/runtimeuser/go/pkg/mod/github.com/gruntwork-io/terratest@v0.48.1/modules/terraform/apply.go:34
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:111
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:91
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:59
+	            				/home/runtimeuser/go/pkg/mod/github.com/!azure/terraform-module-test-helper@v0.31.0/e2etest.go:55
+	            				/src/test/e2e/quickstart_test.go:50
+	Error:      	Received unexpected error:
+	            	'terraform [destroy -auto-approve -input=false -lock=false]' unsuccessful after 5 retries
+	Test:       	Test_Quickstarts/quickstart/101-azure-load-balancer-public
+
+FailNow
+
+---
+
 ## 14 Jun 26 01:16 UTC
 
 Success: false
